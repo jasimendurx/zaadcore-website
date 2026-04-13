@@ -9,34 +9,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "https://zaadcore.com/#zaadworks",
+      url: "https://zaadcore.com/zaadworks",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: "https://zaadcore.com/#features",
+      url: "https://zaadcore.com/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://zaadcore.com/#compliance",
+      url: "https://zaadcore.com/contact",
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://zaadcore.com/#pricing",
+      url: "https://zaadcore.com/#services",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://zaadcore.com/#contact",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
+      priority: 0.8,
     },
   ];
 }

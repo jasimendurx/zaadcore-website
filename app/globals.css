@@ -3,6 +3,11 @@
 :root {
   --background: #0a0e1a;
   --foreground: #e2e8f0;
+  --surface-1: #0b1222;
+  --surface-2: #1e293b;
+  --surface-3: #334155;
+  --muted: #94a3b8;
+  --grid-line: rgba(148, 163, 184, 0.03);
 
   /* ZaadCore Brand */
   --zaad-slate-900: #0f172a;
@@ -12,6 +17,16 @@
   --zaad-orange-400: #fb923c;
   --zaad-orange-300: #fdba74;
   --zaad-amber-500: #f59e0b;
+}
+
+html[data-theme="light"] {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface-1: #ffffff;
+  --surface-2: #f1f5f9;
+  --surface-3: #e2e8f0;
+  --muted: #475569;
+  --grid-line: rgba(100, 116, 139, 0.08);
 }
 
 @theme inline {
@@ -31,10 +46,15 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 92px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -59,24 +79,24 @@ body {
 .mesh-bg {
   background:
     radial-gradient(ellipse 80% 60% at 20% 0%, rgba(249, 115, 22, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 80% at 50% 100%, rgba(15, 23, 42, 0.9) 0%, transparent 70%),
-    linear-gradient(180deg, #0a0e1a 0%, #0f172a 50%, #0a0e1a 100%);
+    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 50% 100%, rgba(15, 23, 42, 0.45) 0%, transparent 70%),
+    linear-gradient(180deg, var(--background) 0%, var(--surface-1) 50%, var(--background) 100%);
 }
 
 /* Glass card */
 .glass {
-  background: rgba(30, 41, 59, 0.4);
+  background: color-mix(in srgb, var(--surface-2) 78%, transparent);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border: 1px solid color-mix(in srgb, var(--muted) 18%, transparent);
 }
 
 .glass-bright {
-  background: rgba(30, 41, 59, 0.6);
+  background: color-mix(in srgb, var(--surface-2) 86%, transparent);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(249, 115, 22, 0.15);
+  border: 1px solid color-mix(in srgb, var(--zaad-orange-500) 20%, transparent);
 }
 
 /* Gradient text */
@@ -88,6 +108,13 @@ body {
 }
 
 .text-gradient-slate {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #64748b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html[data-theme="dark"] .text-gradient-slate {
   background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -113,8 +140,8 @@ body {
 /* Grid pattern overlay */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -191,4 +218,51 @@ body {
 ::selection {
   background: rgba(249, 115, 22, 0.3);
   color: #fff;
+}
+
+html[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html[data-theme="light"] .text-slate-300 {
+  color: #334155 !important;
+}
+
+html[data-theme="light"] .text-slate-400,
+html[data-theme="light"] .text-slate-500 {
+  color: #475569 !important;
+}
+
+html[data-theme="light"] .text-slate-600,
+html[data-theme="light"] .text-slate-700 {
+  color: #64748b !important;
+}
+
+html[data-theme="light"] .bg-\[\#0a0e1a\],
+html[data-theme="light"] .bg-\[\#0a0f1d\],
+html[data-theme="light"] .bg-\[\#090e1a\],
+html[data-theme="light"] .bg-\[\#0b1222\],
+html[data-theme="light"] .bg-\[\#0c1222\],
+html[data-theme="light"] .bg-\[\#080c16\],
+html[data-theme="light"] .bg-\[\#0f172a\],
+html[data-theme="light"] .bg-\[\#101828\],
+html[data-theme="light"] .bg-\[\#111827\],
+html[data-theme="light"] .bg-\[\#141B2E\] {
+  background-color: #f8fafc !important;
+}
+
+html[data-theme="light"] .border-slate-700\/50,
+html[data-theme="light"] .border-slate-700\/60,
+html[data-theme="light"] .border-slate-800,
+html[data-theme="light"] .border-slate-800\/60 {
+  border-color: rgba(100, 116, 139, 0.35) !important;
+}
+
+html[data-theme="light"] .shadow-black\/20,
+html[data-theme="light"] .shadow-black\/30 {
+  --tw-shadow-color: rgba(148, 163, 184, 0.35) !important;
 }

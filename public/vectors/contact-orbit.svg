@@ -1,0 +1,40 @@
+<svg width="1200" height="640" viewBox="0 0 1200 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0E1A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="line" x1="140" y1="120" x2="1040" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#64748B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="640" rx="28" fill="url(#bg)"/>
+  <rect x="30" y="30" width="1140" height="580" rx="22" stroke="#334155"/>
+
+  <g stroke="#334155" stroke-width="1.5">
+    <ellipse cx="600" cy="320" rx="360" ry="160"/>
+    <ellipse cx="600" cy="320" rx="260" ry="115"/>
+    <ellipse cx="600" cy="320" rx="150" ry="68"/>
+  </g>
+
+  <g stroke="url(#line)" stroke-width="2" stroke-linecap="round">
+    <path d="M240 320L450 320"/>
+    <path d="M750 320L960 320"/>
+    <path d="M600 160L600 252"/>
+    <path d="M600 388L600 480"/>
+  </g>
+
+  <circle cx="600" cy="320" r="44" fill="#F97316" fill-opacity="0.2" stroke="#FB923C" stroke-width="2"/>
+  <circle cx="240" cy="320" r="13" fill="#FB923C"/>
+  <circle cx="960" cy="320" r="13" fill="#FB923C"/>
+  <circle cx="600" cy="160" r="13" fill="#FB923C"/>
+  <circle cx="600" cy="480" r="13" fill="#FB923C"/>
+
+  <text x="554" y="327" fill="#E2E8F0" font-size="15" font-family="Inter, sans-serif" font-weight="700">HELLO</text>
+  <text x="170" y="295" fill="#CBD5E1" font-size="16" font-family="Inter, sans-serif" font-weight="600">Email</text>
+  <text x="910" y="295" fill="#CBD5E1" font-size="16" font-family="Inter, sans-serif" font-weight="600">Phone</text>
+  <text x="560" y="130" fill="#CBD5E1" font-size="16" font-family="Inter, sans-serif" font-weight="600">Office</text>
+  <text x="548" y="520" fill="#CBD5E1" font-size="16" font-family="Inter, sans-serif" font-weight="600">Demo</text>
+</svg>

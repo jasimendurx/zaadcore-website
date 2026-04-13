@@ -1,0 +1,52 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="160" y1="120" x2="960" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F97316"/>
+      <stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)"/>
+  <g opacity="0.5">
+    <circle cx="600" cy="350" r="260" stroke="#334155" stroke-width="2"/>
+    <circle cx="600" cy="350" r="190" stroke="#334155" stroke-width="2"/>
+    <circle cx="600" cy="350" r="120" stroke="#334155" stroke-width="2"/>
+  </g>
+
+  <circle cx="600" cy="350" r="64" fill="#F97316" fill-opacity="0.18" stroke="url(#ring)" stroke-width="3"/>
+  <text x="560" y="358" fill="#F8FAFC" font-size="20" font-family="Inter, sans-serif" font-weight="700">CORE</text>
+
+  <g>
+    <circle cx="600" cy="90" r="18" fill="#FB923C"/>
+    <text x="546" y="55" fill="#E2E8F0" font-size="18" font-family="Inter, sans-serif" font-weight="600">Craft</text>
+    <path d="M600 108L600 228" stroke="#FB923C" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle cx="890" cy="350" r="18" fill="#FB923C"/>
+    <text x="910" y="356" fill="#E2E8F0" font-size="18" font-family="Inter, sans-serif" font-weight="600">Clarity</text>
+    <path d="M872 350L732 350" stroke="#FB923C" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle cx="600" cy="610" r="18" fill="#FB923C"/>
+    <text x="548" y="664" fill="#E2E8F0" font-size="18" font-family="Inter, sans-serif" font-weight="600">Ownership</text>
+    <path d="M600 592L600 472" stroke="#FB923C" stroke-width="2"/>
+  </g>
+
+  <g>
+    <circle cx="310" cy="350" r="18" fill="#FB923C"/>
+    <text x="215" y="356" fill="#E2E8F0" font-size="18" font-family="Inter, sans-serif" font-weight="600">Execution</text>
+    <path d="M328 350L468 350" stroke="#FB923C" stroke-width="2"/>
+  </g>
+
+  <g opacity="0.9" fill="#94A3B8">
+    <circle cx="406" cy="182" r="8"/>
+    <circle cx="792" cy="182" r="8"/>
+    <circle cx="406" cy="518" r="8"/>
+    <circle cx="792" cy="518" r="8"/>
+  </g>
+</svg>

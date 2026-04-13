@@ -1,0 +1,17 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="28" fill="url(#bg)"/>
+  <rect x="80" y="70" width="1040" height="660" rx="22" fill="#0b1222" stroke="#334155"/>
+  <rect x="140" y="140" width="420" height="240" rx="16" fill="#1e293b"/>
+  <rect x="620" y="140" width="420" height="240" rx="16" fill="#1e293b"/>
+  <rect x="140" y="430" width="900" height="230" rx="16" fill="#1e293b"/>
+  <path d="M200 220H500" stroke="#64748b" stroke-width="10"/>
+  <path d="M680 220H980" stroke="#64748b" stroke-width="10"/>
+  <path d="M220 540H960" stroke="#fb923c" stroke-width="12" stroke-linecap="round"/>
+  <text x="160" y="610" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="34" font-weight="700">Strategy and Planning Board</text>
+</svg>

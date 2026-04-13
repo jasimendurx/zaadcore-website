@@ -6,29 +6,29 @@ import { ExternalLink, AtSign, Code2 } from "lucide-react";
 
 const footerLinks = {
   Product: [
-    { label: "ZaadWorks HRMS", href: "#zaadworks" },
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Roadmap", href: "#roadmap" },
-    { label: "Changelog", href: "#" },
+    { label: "ZaadWorks HRMS", href: "/zaadworks" },
+    { label: "HRMS Features", href: "/zaadworks#features" },
+    { label: "UAE Compliance", href: "/zaadworks#compliance" },
+    { label: "Product Demo", href: "/zaadworks#contact" },
+    { label: "Roadmap", href: "/#products" },
   ],
   Solutions: [
-    { label: "Small Business", href: "#" },
-    { label: "Enterprise", href: "#" },
-    { label: "Holding Groups", href: "#" },
-    { label: "Free Zones", href: "#" },
+    { label: "SaaS Product Delivery", href: "/#services" },
+    { label: "Workflow Automation", href: "/#services" },
+    { label: "AI-Ready Systems", href: "/#services" },
+    { label: "Enterprise Platforms", href: "/#services" },
   ],
   Compliance: [
-    { label: "UAE WPS", href: "#compliance" },
-    { label: "MOHRE Integration", href: "#compliance" },
-    { label: "Emiratisation", href: "#compliance" },
-    { label: "Labour Law", href: "#compliance" },
+    { label: "UAE WPS", href: "/zaadworks#compliance" },
+    { label: "MOHRE Integration", href: "/zaadworks#compliance" },
+    { label: "Emiratisation", href: "/zaadworks#compliance" },
+    { label: "Labour Law", href: "/zaadworks#compliance" },
   ],
   Company: [
-    { label: "About ZaadCore", href: "#about" },
+    { label: "About ZaadCore", href: "/about" },
     { label: "Blog", href: "#" },
     { label: "Careers", href: "#" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
     { label: "Privacy Policy", href: "#" },
   ],
 };
@@ -48,8 +48,8 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
             <ZaadLogo size="md" className="mb-4" />
             <p className="text-sm text-slate-500 leading-relaxed mb-6 max-w-xs">
-              ZaadCore builds enterprise workforce management products for MENA.
-              WPS-compliant, built for multicultural teams.
+              ZaadCore is a software solutions company building scalable digital
+              products across operations, workforce, and automation.
             </p>
             <div className="flex gap-3">
               {[

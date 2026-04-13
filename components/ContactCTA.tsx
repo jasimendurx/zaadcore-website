@@ -25,7 +25,7 @@ export default function ContactCTA() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="contact" className="relative py-20 overflow-hidden">
       {/* Background */}
       <div
         className="absolute inset-0"
@@ -41,59 +41,6 @@ export default function ContactCTA() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top CTA banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <div className="relative inline-block">
-            <div
-              className="rounded-3xl p-12 lg:p-16"
-              style={{
-                background: "linear-gradient(135deg, rgba(249,115,22,0.1) 0%, rgba(30,41,59,0.6) 100%)",
-                border: "1px solid rgba(249,115,22,0.2)",
-                boxShadow: "0 0 80px rgba(249,115,22,0.08)",
-              }}
-            >
-              <h2
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "var(--font-syne)" }}
-              >
-                <span className="text-white">Ready to Transform</span>
-                <br />
-                <span className="text-gradient-orange">Your HR Operations?</span>
-              </h2>
-              <p className="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
-                Join hundreds of UAE businesses running on ZaadWorks.
-                Get a personalised demo in 24 hours.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="#demo-form"
-                  className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white text-base transition-all hover:scale-105"
-                  style={{
-                    background: "linear-gradient(135deg, #f97316, #ea580c)",
-                    boxShadow: "0 0 32px rgba(249,115,22,0.4)",
-                  }}
-                >
-                  Book a Free Demo
-                  <ArrowRight size={18} />
-                </a>
-                <a
-                  href="tel:+97142000000"
-                  className="flex items-center gap-2 px-8 py-4 rounded-2xl glass font-medium text-slate-300 text-base hover:text-white transition-colors"
-                >
-                  <Phone size={16} className="text-orange-400" />
-                  Call Us Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Contact form + info */}
         <div id="demo-form" className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Info */}

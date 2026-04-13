@@ -59,7 +59,7 @@ const checklist = [
 
 export default function Compliance() {
   return (
-    <section id="compliance" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="compliance" className="relative py-20 overflow-hidden">
       {/* Background */}
       <div
         className="absolute inset-0"

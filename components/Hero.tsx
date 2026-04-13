@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Shield, Zap, Globe, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Play, Shield, Zap, Globe, CheckCircle2, MapPin } from "lucide-react";
 
 const stats = [
   { value: "98%", label: "WPS Compliance Rate" },
@@ -63,7 +63,7 @@ export default function Hero() {
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-16 lg:pb-20"
       >
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
@@ -71,7 +71,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 text-sm"
+              className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6 text-sm"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
@@ -85,7 +85,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight mb-6"
+              className="text-[2.6rem] sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.06] tracking-tight mb-5"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               <span className="text-white">HRMS That Fits</span>
@@ -99,7 +99,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="max-w-2xl text-lg text-slate-300 leading-relaxed mb-8"
+              className="max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed mb-6"
             >
               ZaadWorks gives HR, payroll, and operations teams one unified system to run attendance,
               leave, payroll, and compliance with speed and clarity.
@@ -109,7 +109,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid sm:grid-cols-2 gap-2 mb-8"
+              className="grid sm:grid-cols-2 gap-2 mb-6"
             >
               {highlights.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-slate-300">
@@ -123,11 +123,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10"
+              className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 mb-8"
             >
               <a
                 href="#contact"
-                className="group flex items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-base transition-all duration-200 hover:scale-105 active:scale-95"
+                className="group flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-white font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{
                   background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
                   boxShadow: "0 0 32px rgba(249, 115, 22, 0.4), 0 4px 16px rgba(0,0,0,0.3)",
@@ -138,7 +138,7 @@ export default function Hero() {
               </a>
               <a
                 href="#zaadworks"
-                className="group flex items-center gap-2 px-8 py-4 rounded-2xl text-slate-200 font-medium text-base glass hover:border-slate-600 transition-all duration-200 hover:text-white"
+                className="group flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-slate-200 font-medium text-sm sm:text-base glass hover:border-slate-600 transition-all duration-200 hover:text-white"
               >
                 <Play size={16} className="text-orange-400" />
                 Explore Modules
@@ -149,7 +149,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-2.5"
             >
               {stats.map((stat, i) => (
                 <motion.div
@@ -175,27 +175,30 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            className="relative hidden lg:block"
           >
-            <div
-              className="rounded-3xl p-5 sm:p-6 border border-slate-700/70"
-              style={{
-                background: "linear-gradient(160deg, rgba(15,23,42,0.88) 0%, rgba(30,41,59,0.72) 100%)",
-                boxShadow: "0 28px 90px rgba(0,0,0,0.45)",
-              }}
-            >
+            <div className="relative rounded-3xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-black/60">
               <img
-                src="/vectors/zaadworks-matrix.svg"
-                alt="ZaadWorks interface visual"
-                className="w-full rounded-2xl border border-slate-700/60"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+                alt="ZaadWorks HR analytics dashboard"
+                className="w-full h-[420px] object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a]/80 via-transparent to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 text-xs text-slate-200">
-              🇦🇪 Built for UAE workforces
-            </div>
-            <div className="absolute -top-4 -right-4 glass rounded-xl px-4 py-3 text-xs text-slate-200">
-              ⚡ Fast onboarding in days
-            </div>
+            <motion.div animate={{ y: [-4, 4, -4] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-4 -left-4 glass-dark rounded-xl px-4 py-3 border border-slate-700/50 shadow-xl">
+              <div className="flex items-center gap-2.5">
+                <MapPin size={13} className="text-orange-400 shrink-0" />
+                <span className="text-xs text-slate-200 font-medium">Built for UAE workforces</span>
+              </div>
+            </motion.div>
+            <motion.div animate={{ y: [4, -4, 4] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -top-4 -right-4 glass-dark rounded-xl px-4 py-3 border border-slate-700/50 shadow-xl">
+              <div className="flex items-center gap-2.5">
+                <Zap size={13} className="text-orange-400 shrink-0" />
+                <span className="text-xs text-slate-200 font-medium">Live in days, not months</span>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>

@@ -36,14 +36,10 @@ const testimonials = [
   },
 ];
 
-const logos = [
-  "Gulf Dynamics", "BuildCore", "Al Futtaim", "Dunes Group",
-  "Khaleeji Tech", "MENA Holdings", "Emirates Retail",
-];
 
 export default function Testimonials() {
   return (
-    <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="about" className="relative py-20 overflow-hidden">
       <div
         className="absolute inset-0"
         style={{
@@ -120,31 +116,6 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Company logos ticker */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="text-center text-xs text-slate-600 uppercase tracking-widest mb-8">
-            Companies running on ZaadWorks
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
-            {logos.map((logo, i) => (
-              <motion.div
-                key={logo}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="px-6 py-3 glass rounded-xl"
-              >
-                <span className="text-sm font-semibold text-slate-500">{logo}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

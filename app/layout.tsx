@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Syne } from "next/font/google";
 import "./globals.css";
+import PageLoader from "@/components/PageLoader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -136,6 +137,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
       className={`${inter.variable} ${syne.variable} h-full antialiased`}
     >
       <head>
@@ -144,7 +146,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full bg-[#0a0e1a] text-slate-200">{children}</body>
+      <body className="min-h-full bg-[#0a0e1a] text-slate-200">
+          <PageLoader />
+          {children}
+        </body>
     </html>
   );
 }

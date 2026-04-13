@@ -54,36 +54,10 @@ const modules = [
   },
 ];
 
-const upcomingProducts = [
-  {
-    name: "ZaadRecruit",
-    desc: "AI-powered recruitment and applicant tracking system",
-    eta: "Q3 2026",
-    icon: "🎯",
-  },
-  {
-    name: "ZaadLearn",
-    desc: "Employee learning & development platform with certifications",
-    eta: "Q4 2026",
-    icon: "📚",
-  },
-  {
-    name: "ZaadPerf",
-    desc: "Continuous performance management and OKR tracking",
-    eta: "Q1 2027",
-    icon: "📈",
-  },
-  {
-    name: "ZaadOps",
-    desc: "Business operations automation and workflow engine",
-    eta: "2027",
-    icon: "⚡",
-  },
-];
 
 export default function ProductSuite() {
   return (
-    <section id="products" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="products" className="relative py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[#0a0e1a]">
         <div className="absolute inset-0 grid-pattern opacity-50" />
@@ -92,7 +66,7 @@ export default function ProductSuite() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ZaadWorks section */}
-        <div id="zaadworks" className="mb-24">
+        <div id="zaadworks">
           {/* Label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -172,81 +146,6 @@ export default function ProductSuite() {
           </motion.div>
         </div>
 
-        {/* ZaadCore product roadmap */}
-        <div id="roadmap">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm mb-6">
-              <span className="text-slate-400">The ZaadCore Platform</span>
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 tracking-tight"
-              style={{ fontFamily: "var(--font-syne)" }}
-            >
-              <span className="text-white">One Platform.</span>
-              <br />
-              <span className="text-gradient-slate">Infinite Possibilities.</span>
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto">
-              ZaadCore is building a suite of enterprise products for the MENA workforce.
-              ZaadWorks is the first — more are coming.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {/* Current product */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="rounded-2xl p-6 relative overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.08) 100%)",
-                border: "1px solid rgba(249,115,22,0.25)",
-              }}
-            >
-              <div className="absolute top-3 right-3">
-                <span className="text-[10px] px-2 py-1 rounded-full bg-green-500/20 text-green-400 font-medium">
-                  Live
-                </span>
-              </div>
-              <div className="text-2xl mb-3">🏢</div>
-              <h3 className="font-bold text-white mb-1" style={{ fontFamily: "var(--font-syne)" }}>
-                ZaadWorks
-              </h3>
-              <p className="text-xs text-slate-400">Enterprise HRMS · WPS Payroll · Attendance · ESS</p>
-            </motion.div>
-
-            {/* Upcoming products */}
-            {upcomingProducts.map((product, i) => (
-              <motion.div
-                key={product.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (i + 1) * 0.08 }}
-                className="glass rounded-2xl p-6 relative opacity-70 hover:opacity-90 transition-opacity"
-              >
-                <div className="absolute top-3 right-3">
-                  <span className="text-[10px] px-2 py-1 rounded-full bg-slate-700/60 text-slate-500">
-                    {product.eta}
-                  </span>
-                </div>
-                <div className="text-2xl mb-3">{product.icon}</div>
-                <h3 className="font-bold text-slate-300 mb-1" style={{ fontFamily: "var(--font-syne)" }}>
-                  {product.name}
-                </h3>
-                <p className="text-xs text-slate-500">{product.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

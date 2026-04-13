@@ -9,8 +9,8 @@ const features = [
     icon: Smartphone,
     title: "Mobile-First ESS",
     desc: "Employees access their payslips, apply for leave, update personal info, and clock in — all from a Progressive Web App. Works offline too.",
-    metric: "4.8★",
-    metricLabel: "App Store rating",
+    metric: "PWA",
+    metricLabel: "Works offline",
   },
   {
     icon: Database,
@@ -73,7 +73,7 @@ function CounterBadge({ metric, label }: { metric: string; label: string }) {
 
 export default function Features() {
   return (
-    <section id="features" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="features" className="relative py-20 overflow-hidden">
       <div
         className="absolute inset-0"
         style={{

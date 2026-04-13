@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import ZaadLogo from "./ZaadLogo";
 
 type NavLink = {
@@ -42,7 +42,6 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const navLinks = mode === "product" ? productLinks : companyLinks;
 
   useEffect(() => {
@@ -50,21 +49,6 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem("zaadcore-theme");
-    const preferred = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-    const nextTheme = (stored === "light" || stored === "dark") ? stored : preferred;
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.setAttribute("data-theme", nextTheme);
-    window.localStorage.setItem("zaadcore-theme", nextTheme);
-  };
 
   return (
     <>
@@ -74,9 +58,7 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? theme === "light"
-              ? "bg-white/90 backdrop-blur-xl border-b border-slate-300/80 shadow-lg shadow-slate-200/60"
-              : "bg-[#0a0e1a]/90 backdrop-blur-xl border-b border-slate-800/60 shadow-lg shadow-black/20"
+            ? "bg-[#070b15]/95 backdrop-blur-xl border-b border-slate-800/60 shadow-lg shadow-black/30"
             : "bg-transparent"
         }`}
       >
@@ -98,13 +80,12 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
                 >
                   <a
                     href={link.href}
-                    className="flex items-center gap-1 px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-slate-800/50"
+                    className="flex items-center gap-1 px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/5"
                   >
                     {link.label}
-                    {link.children && <ChevronDown size={14} className="opacity-60" />}
+                    {link.children && <ChevronDown size={13} className="opacity-50" />}
                   </a>
 
-                  {/* Dropdown */}
                   {link.children && (
                     <AnimatePresence>
                       {activeDropdown === link.label && (
@@ -113,13 +94,13 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.97 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-56 glass rounded-xl p-2 shadow-xl"
+                          className="absolute top-full left-0 mt-1 w-56 glass rounded-xl p-2 shadow-xl shadow-black/40"
                         >
                           {link.children.map((child) => (
                             <a
                               key={child.label}
                               href={child.href}
-                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-700/40 transition-colors group"
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
                             >
                               <div className="flex-1">
                                 <div className="flex items-center gap-2">
@@ -144,15 +125,8 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
               ))}
             </div>
 
-            {/* CTA */}
+            {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <button
-                onClick={toggleTheme}
-                className="glass rounded-xl p-2 text-slate-300 hover:text-white transition-colors"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-              </button>
               <a
                 href={mode === "product" ? "#contact" : "/contact"}
                 className="text-sm text-slate-400 hover:text-white transition-colors px-4 py-2"
@@ -161,10 +135,10 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
               </a>
               <a
                 href={mode === "product" ? "#contact" : "/zaadworks"}
-                className="relative text-sm font-semibold text-white px-5 py-2.5 rounded-xl overflow-hidden transition-transform hover:scale-105 active:scale-95"
+                className="text-sm font-semibold text-white px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_24px_rgba(249,115,22,0.4)]"
                 style={{
                   background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
-                  boxShadow: "0 0 24px rgba(249, 115, 22, 0.35)",
+                  boxShadow: "0 0 20px rgba(249, 115, 22, 0.25)",
                 }}
               >
                 {mode === "product" ? "Get a Demo" : "Explore ZaadWorks"}
@@ -172,22 +146,13 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
             </div>
 
             {/* Mobile toggle */}
-            <div className="lg:hidden flex items-center gap-1">
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-slate-400 hover:text-white transition-colors"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <button
-                onClick={() => setMobileOpen(!mobileOpen)}
-                className="p-2 text-slate-400 hover:text-white transition-colors"
-                aria-label="Toggle menu"
-              >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-              </button>
-            </div>
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 text-slate-400 hover:text-white transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
         </div>
       </motion.nav>
@@ -203,19 +168,13 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
             className="fixed inset-0 z-40 lg:hidden"
           >
             <div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
               onClick={() => setMobileOpen(false)}
             />
-            <div
-              className={`absolute right-0 top-0 bottom-0 w-72 border-l p-6 flex flex-col ${
-                theme === "light"
-                  ? "bg-slate-50 border-slate-300"
-                  : "bg-[#0f172a] border-slate-800"
-              }`}
-            >
+            <div className="absolute right-0 top-0 bottom-0 w-72 bg-[#0a0e1a] border-l border-slate-800/60 p-6 flex flex-col">
               <div className="flex items-center justify-between mb-8">
                 <ZaadLogo size="sm" />
-                <button onClick={() => setMobileOpen(false)} className="text-slate-400 hover:text-white">
+                <button onClick={() => setMobileOpen(false)} className="text-slate-400 hover:text-white transition-colors">
                   <X size={20} />
                 </button>
               </div>
@@ -225,7 +184,7 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
                     <a
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-colors font-medium"
+                      className="block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors font-medium"
                     >
                       {link.label}
                     </a>
@@ -251,7 +210,7 @@ export default function Navbar({ mode = "company" }: { mode?: "company" | "produ
                   </div>
                 ))}
               </nav>
-              <div className="pt-6 border-t border-slate-800 flex flex-col gap-3">
+              <div className="pt-6 border-t border-slate-800/60 flex flex-col gap-3">
                 <a
                   href={mode === "product" ? "#contact" : "/contact"}
                   onClick={() => setMobileOpen(false)}

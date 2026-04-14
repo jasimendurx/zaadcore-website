@@ -1,25 +1,25 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, ArrowRight, Send, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Send, CheckCircle2, Mail, MapPin, Clock } from "lucide-react";
 import SiteShell from "@/components/SiteShell";
 
-function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 28 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-const contactInfo = [
-  { icon: Mail,   label: "Email",    value: "hello@zaadcore.com",      href: "mailto:hello@zaadcore.com" },
-  { icon: Phone,  label: "Phone",    value: "+971 4 200 0000",          href: "tel:+97142000000" },
-  { icon: MapPin, label: "Location", value: "Dubai, United Arab Emirates", href: "#" },
-  { icon: Clock,  label: "Hours",    value: "Sun–Thu · 9AM–6PM GST",   href: "#" },
+const steps = [
+  {
+    num: "01",
+    title: "Discovery call",
+    desc: "We map your goals, constraints, and timeline in a focused 30-minute conversation.",
+  },
+  {
+    num: "02",
+    title: "Architecture proposal",
+    desc: "We deliver a written technical recommendation and delivery roadmap — within days.",
+  },
+  {
+    num: "03",
+    title: "First sprint",
+    desc: "We begin shipping within days of alignment. No lengthy onboarding.",
+  },
 ];
 
 export default function ContactPage() {
@@ -29,216 +29,285 @@ export default function ContactPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1800);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1600);
   }
 
   return (
     <SiteShell>
-      <main className="relative">
+      <main>
 
-        {/* ══════════ HERO ══════════ */}
-        <section className="relative min-h-[82vh] overflow-hidden flex items-center">
-          {/* Background video */}
-          <video className="absolute inset-0 w-full h-full object-cover opacity-30" autoPlay muted loop playsInline>
-            <source src="https://player.vimeo.com/external/403733771.sd.mp4?s=d40ab8ecf526f8f8d5f4fefbd3fad43ba6f8b917&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+        {/* ── HERO ──────────────────────────────────────────── */}
+        <section
+          className="relative min-h-[82vh] flex items-center overflow-hidden"
+          aria-labelledby="contact-heading"
+        >
+          {/* Background image */}
+          <div className="absolute inset-0">
+            <img
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=60"
+              alt=""
+              className="w-full h-full object-cover opacity-25"
+            />
+          </div>
+          <video
+            className="absolute inset-0 w-full h-full object-cover opacity-[0.07] mix-blend-luminosity"
+            autoPlay muted loop playsInline
+          >
+            <source
+              src="https://player.vimeo.com/external/403733771.sd.mp4?s=d40ab8ecf526f8f8d5f4fefbd3fad43ba6f8b917&profile_id=139&oauth2_token_id=57447761"
+              type="video/mp4"
+            />
           </video>
-
-          {/* Fallback photo */}
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=50" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.05]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060a14]/95 via-[#060a14]/85 to-[#060a14]/65" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#060a14]/50 via-transparent to-[#0a0e1a]" />
-
-          {/* Grid */}
-          <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "linear-gradient(rgba(148,163,184,1) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,1) 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
-
-          {/* Orange orb */}
-          <motion.div
-            animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.22, 0.12] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080d18]/96 via-[#080d18]/82 to-[#080d18]/55" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#080d18]/40 via-transparent to-[#080d18]" />
+          <div className="absolute inset-0 bg-dots opacity-25 pointer-events-none" />
+          <div
             className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(249,115,22,0.09) 0%, transparent 65%)" }}
           />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 glass-dark rounded-full px-4 py-2 text-sm mb-8 border border-orange-500/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
-              <span className="text-slate-300 font-medium">Contact ZaadCore</span>
-            </motion.div>
-
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pt-32 pb-24">
+            <div className="grid lg:grid-cols-2 gap-14 items-center">
               {/* Left */}
               <div>
-                <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-5xl sm:text-6xl lg:text-[4rem] font-bold tracking-tight leading-[1.04] mb-7"
-                  style={{ fontFamily: "var(--font-syne)" }}>
-                  <span className="text-white">Start the</span><br />
-                  <span className="text-gradient-orange">conversation.</span><br />
-                  <span className="text-white">Ship faster.</span>
-                </motion.h1>
-                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-lg text-slate-400 max-w-xl leading-relaxed mb-8">
-                  Share your goals and timeline. Our team responds with a practical, well-reasoned path forward.
-                </motion.p>
-                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.3 }} className="space-y-3">
-                  {contactInfo.map((item) => (
-                    <a key={item.label} href={item.href}
-                      className="flex items-center gap-4 p-4 glass-dark rounded-xl border border-slate-700/40 hover:border-orange-500/25 transition-all duration-300 group">
-                      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)" }}>
-                        <item.icon size={16} className="text-orange-400" />
+                <p className="section-label mb-5">Get in touch</p>
+                <h1
+                  id="contact-heading"
+                  className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.06] mb-5 text-white"
+                >
+                  Let&apos;s build{" "}
+                  <span className="text-accent">something.</span>
+                </h1>
+                <p className="text-lg text-slate-400 max-w-lg leading-relaxed mb-10">
+                  Share what you are working on. We will get back to you within 24 hours
+                  with a clear, practical path forward.
+                </p>
+
+                <div className="space-y-3">
+                  {[
+                    { icon: Mail, label: "Email", value: "hello@zaadcore.com", href: "mailto:hello@zaadcore.com" },
+                    { icon: MapPin, label: "Location", value: "Dubai, United Arab Emirates", href: "#" },
+                    { icon: Clock, label: "Response", value: "Within 24 hours", href: "#" },
+                  ].map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="flex items-center gap-4 px-5 py-4 card-glass rounded-xl hover:border-orange-500/15 transition-all"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                        <item.icon size={15} className="text-orange-400" />
                       </div>
                       <div>
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-0.5">{item.label}</div>
-                        <div className="text-sm text-slate-300 font-medium group-hover:text-white transition-colors">{item.value}</div>
+                        <div className="text-[10px] text-slate-500 uppercase tracking-widest">{item.label}</div>
+                        <div className="text-sm font-medium text-slate-200">{item.value}</div>
                       </div>
                     </a>
                   ))}
-                </motion.div>
+                </div>
               </div>
 
-              {/* Right — office grid */}
-              <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="hidden lg:grid grid-cols-2 gap-4">
-                <div className="col-span-2 relative rounded-2xl overflow-hidden border border-slate-700/40 h-52">
-                  <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai HQ" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              {/* Right — office image grid */}
+              <div className="hidden lg:grid grid-cols-2 gap-4">
+                {/* Dubai HQ full-width */}
+                <div className="col-span-2 relative rounded-xl overflow-hidden border border-white/8 h-48">
+                  <img
+                    src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80"
+                    alt="Dubai HQ"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/80 to-transparent" />
                   <div className="absolute bottom-4 left-4">
-                    <div className="text-white font-semibold" style={{ fontFamily: "var(--font-syne)" }}>Dubai HQ</div>
-                    <div className="text-slate-300 text-xs">Main delivery office</div>
+                    <p className="text-sm font-semibold text-white">Dubai HQ</p>
+                    <p className="text-xs text-slate-400">Main delivery office</p>
                   </div>
                 </div>
-                <div className="relative rounded-2xl overflow-hidden border border-slate-700/40 h-40">
-                  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80" alt="Remote team" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+
+                {/* Team photo */}
+                <div className="relative rounded-xl overflow-hidden border border-white/8 h-36">
+                  <img
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80"
+                    alt="Remote team"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/80 to-transparent" />
                   <div className="absolute bottom-3 left-3">
-                    <div className="text-white text-sm font-semibold">Remote Team</div>
-                    <div className="text-slate-400 text-xs">MENA distributed</div>
+                    <p className="text-xs font-semibold text-white">Remote Team</p>
+                    <p className="text-[10px] text-slate-400">MENA distributed</p>
                   </div>
                 </div>
-                <div className="glass-dark rounded-2xl border border-slate-700/40 p-5 h-40 flex flex-col justify-between">
+
+                {/* Response time card */}
+                <div className="card-glass rounded-xl border border-white/8 p-5 h-36 flex flex-col justify-between">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-xs text-green-400 font-medium">Online now</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-xs text-emerald-400 font-medium">Online now</span>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-syne)" }}>&lt;24h</div>
+                    <div className="text-2xl font-bold text-white mb-0.5">&lt;24h</div>
                     <div className="text-xs text-slate-400">Guaranteed response</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0e1a] to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#080d18] to-transparent pointer-events-none" />
         </section>
 
-        {/* ══════════ FORM SECTION ══════════ */}
-        <section className="relative py-24 bg-[#0a0e1a]">
-          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(rgba(148,163,184,1) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,1) 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
+        {/* ── FORM + PROCESS ────────────────────────────────── */}
+        <section className="relative py-24 overflow-hidden" aria-labelledby="form-section">
+          <div className="absolute inset-0 bg-[#0a0f1e]" />
+          <div className="absolute inset-0 bg-grid pointer-events-none" />
+          <div
+            className="absolute top-0 left-0 right-0 h-px"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
+          />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-14 items-start">
+          <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-              {/* Left — what to expect */}
-              <FadeUp>
-                <p className="text-orange-400 text-xs font-semibold uppercase tracking-[0.2em] mb-5">What to Expect</p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-syne)" }}>
-                  From first message to<span className="text-gradient-orange"> first sprint.</span>
+              {/* Process */}
+              <div>
+                <h2 id="form-section" className="text-xl font-bold text-white mb-8">
+                  What happens next
                 </h2>
-                <p className="text-slate-400 mb-10 leading-relaxed">
-                  We don't do long sales cycles. Once we understand your goals, we propose a
-                  concrete path — architecture, timeline, team composition — within days.
-                </p>
-
-                <div className="space-y-6">
-                  {[
-                    { step: "01", title: "Discovery call",       desc: "We map your goals, constraints, and timeline in a focused 30-minute session." },
-                    { step: "02", title: "Architecture proposal", desc: "We deliver a written technical recommendation and delivery roadmap." },
-                    { step: "03", title: "First sprint",          desc: "We begin shipping within days of alignment — no lengthy onboarding." },
-                  ].map((item) => (
-                    <div key={item.step} className="flex gap-5">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-bold text-sm text-orange-400 mt-0.5" style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.2)", fontFamily: "var(--font-syne)" }}>
-                        {item.step}
+                <div className="space-y-8 mb-10">
+                  {steps.map((step) => (
+                    <div key={step.num} className="flex gap-5">
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold text-orange-400 mt-0.5"
+                        style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.18)" }}
+                      >
+                        {step.num}
                       </div>
                       <div>
-                        <h3 className="text-white font-semibold mb-1" style={{ fontFamily: "var(--font-syne)" }}>{item.title}</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                        <h3 className="text-sm font-semibold text-white mb-1">{step.title}</h3>
+                        <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10 p-5 glass-dark rounded-2xl border border-slate-700/40">
-                  <div className="text-sm font-semibold text-white mb-1">Prefer email directly?</div>
-                  <a href="mailto:hello@zaadcore.com" className="text-orange-400 hover:text-orange-300 transition-colors font-medium">hello@zaadcore.com</a>
-                  <div className="text-xs text-slate-500 mt-1">We typically reply within a few hours.</div>
+                {/* Office image below steps */}
+                <div className="relative rounded-xl overflow-hidden border border-white/8 mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80"
+                    alt="ZaadCore team"
+                    className="w-full h-44 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e]/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <p className="text-sm font-semibold text-white">Strategy to delivery</p>
+                    <p className="text-xs text-slate-400">One team end-to-end</p>
+                  </div>
                 </div>
-              </FadeUp>
 
-              {/* Right — form */}
-              <FadeUp delay={0.15}>
-                <div className="glass-dark rounded-3xl p-8 sm:p-10 border border-slate-700/50">
-                  {submitted ? (
-                    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                      className="flex flex-col items-center justify-center py-12 text-center gap-5">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, #f97316, #ea580c)" }}>
-                        <CheckCircle2 size={28} className="text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-syne)" }}>Message sent!</h3>
-                        <p className="text-slate-400">We'll get back to you within 24 hours with a clear path forward.</p>
-                      </div>
-                    </motion.div>
-                  ) : (
-                    <>
-                      <div className="mb-8">
-                        <h3 className="text-2xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-syne)" }}>Send us a message</h3>
-                        <p className="text-sm text-slate-400">Fill out the form and we'll be in touch within 24 hours.</p>
-                      </div>
-                      <form onSubmit={handleSubmit} className="space-y-5">
-                        <div className="grid sm:grid-cols-2 gap-5">
-                          {[
-                            { id: "name",  label: "Full Name",   placeholder: "Ahmed Al-Mansoori", type: "text" },
-                            { id: "email", label: "Work Email",  placeholder: "ahmed@company.ae",  type: "email" },
-                          ].map((f) => (
-                            <div key={f.id}>
-                              <label className="block text-xs text-slate-400 uppercase tracking-widest mb-2">{f.label}</label>
-                              <input type={f.type} placeholder={f.placeholder} required
-                                className="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition-all" />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="grid sm:grid-cols-2 gap-5">
-                          {[
-                            { id: "company", label: "Company Name", placeholder: "Gulf Dynamics LLC",  type: "text" },
-                            { id: "size",    label: "Team Size",    placeholder: "50–200 employees",   type: "text" },
-                          ].map((f) => (
-                            <div key={f.id}>
-                              <label className="block text-xs text-slate-400 uppercase tracking-widest mb-2">{f.label}</label>
-                              <input type={f.type} placeholder={f.placeholder}
-                                className="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition-all" />
-                            </div>
-                          ))}
+                <div className="card p-5 rounded-xl">
+                  <p className="text-sm text-slate-400 mb-1">Prefer email?</p>
+                  <a
+                    href="mailto:hello@zaadcore.com"
+                    className="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors"
+                  >
+                    hello@zaadcore.com
+                  </a>
+                  <p className="text-xs text-slate-600 mt-1">
+                    We typically reply within a few hours.
+                  </p>
+                </div>
+              </div>
+
+              {/* Form */}
+              <div className="card p-8 rounded-2xl">
+                {submitted ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center gap-5">
+                    <div className="w-14 h-14 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                      <CheckCircle2 size={24} className="text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2">Message received</h3>
+                      <p className="text-sm text-slate-400">
+                        We will get back to you within 24 hours with a clear path forward.
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <h2 className="text-xl font-bold text-white mb-1">Send a message</h2>
+                    <p className="text-sm text-slate-500 mb-7">We respond within 24 hours.</p>
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        <div>
+                          <label className="block text-xs text-slate-500 uppercase tracking-wider mb-2">
+                            Full Name
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="Your name"
+                            required
+                            className="w-full bg-white/3 border border-white/7 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/40 transition-colors"
+                          />
                         </div>
                         <div>
-                          <label className="block text-xs text-slate-400 uppercase tracking-widest mb-2">What are you building?</label>
-                          <textarea rows={4} placeholder="Describe your project, goals, or the problem you're solving..."
-                            className="w-full bg-slate-900/60 border border-slate-700/60 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition-all resize-none" />
+                          <label className="block text-xs text-slate-500 uppercase tracking-wider mb-2">
+                            Work Email
+                          </label>
+                          <input
+                            type="email"
+                            placeholder="you@company.com"
+                            required
+                            className="w-full bg-white/3 border border-white/7 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/40 transition-colors"
+                          />
                         </div>
-                        <button type="submit" disabled={loading}
-                          className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_32px_rgba(249,115,22,0.3)] disabled:opacity-70 disabled:scale-100"
-                          style={{ background: "linear-gradient(135deg, #f97316, #ea580c)" }}>
-                          {loading ? (
-                            <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending…</>
-                          ) : (
-                            <><Send size={16} />Send Message<ArrowRight size={15} /></>
-                          )}
-                        </button>
-                      </form>
-                    </>
-                  )}
-                </div>
-              </FadeUp>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs text-slate-500 uppercase tracking-wider mb-2">
+                          Company
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Company name"
+                          className="w-full bg-white/3 border border-white/7 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/40 transition-colors"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs text-slate-500 uppercase tracking-wider mb-2">
+                          What are you building?
+                        </label>
+                        <textarea
+                          rows={4}
+                          placeholder="Describe your project, goals, or the problem you are trying to solve..."
+                          className="w-full bg-white/3 border border-white/7 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/40 transition-colors resize-none"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-semibold text-sm transition-colors disabled:opacity-70"
+                      >
+                        {loading ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            Sending…
+                          </>
+                        ) : (
+                          <>
+                            <Send size={14} />
+                            Send message
+                            <ArrowRight size={13} />
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </section>

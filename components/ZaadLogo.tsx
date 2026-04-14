@@ -47,7 +47,7 @@ export default function ZaadLogo({ variant = "full", size = "md", className = ""
           <span
             className={`${text} font-bold tracking-tight`}
             style={{
-              fontFamily: "var(--font-syne)",
+              fontFamily: "var(--font-manrope)",
               background: "linear-gradient(135deg, #fff 0%, #fb923c 70%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",

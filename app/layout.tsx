@@ -77,7 +77,12 @@ export const metadata: Metadata = {
     creator: "@zaadcore",
   },
   icons: {
-    icon: [{ url: "/favicon.ico" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg",    type: "image/svg+xml", sizes: "any" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   manifest: "/site.webmanifest",
   alternates: {
@@ -177,6 +182,9 @@ export default function RootLayout({
       className={`${manrope.variable} h-full`}
     >
       <head>
+        {/* Favicon — SVG works in all modern browsers; fallback via metadata icons */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

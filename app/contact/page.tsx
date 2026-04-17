@@ -39,12 +39,12 @@ export default function ContactPage() {
     <SiteShell>
       <main>
 
-        {/* ── HERO ──────────────────────────────────────────── */}
+        {/* ── HERO + FORM ───────────────────────────────────── */}
         <section
-          className="relative min-h-[82vh] flex items-center overflow-hidden"
+          className="relative min-h-screen flex items-center overflow-hidden"
           aria-labelledby="contact-heading"
         >
-          {/* Background image */}
+          {/* Background */}
           <div className="absolute inset-0">
             <img
               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=60"
@@ -70,8 +70,9 @@ export default function ContactPage() {
           />
 
           <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-24">
-            <div className="grid lg:grid-cols-2 gap-14 items-center">
-              {/* Left */}
+            <div className="grid lg:grid-cols-2 gap-14 items-start">
+
+              {/* Left — heading + contact info */}
               <div>
                 <p className="section-label mb-5">Get in touch</p>
                 <h1
@@ -86,7 +87,7 @@ export default function ContactPage() {
                   with a clear, practical path forward.
                 </p>
 
-                <div className="space-y-3">
+                <div className="space-y-3 mb-12">
                   {[
                     { icon: Mail, label: "Email", value: "hello@zaadcore.com", href: "mailto:hello@zaadcore.com" },
                     {
@@ -115,72 +116,31 @@ export default function ContactPage() {
                     </a>
                   ))}
                 </div>
-              </div>
 
-              {/* Right — office image grid */}
-              <div className="hidden lg:grid grid-cols-2 gap-4">
-                {/* Dubai HQ full-width */}
-                <div className="col-span-2 relative rounded-xl overflow-hidden border border-white/8 h-48">
-                  <img
-                    src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80"
-                    alt="Dubai HQ"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 ov-img-b" />
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-sm font-semibold text-white">Dubai HQ</p>
-                    <p className="text-xs text-slate-400">Main delivery office</p>
-                  </div>
-                </div>
-
-                {/* Team photo */}
-                <div className="relative rounded-xl overflow-hidden border border-white/8 h-36">
-                  <img
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80"
-                    alt="Remote team"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 ov-img-b" />
-                  <div className="absolute bottom-3 left-3">
-                    <p className="text-xs font-semibold text-white">Remote Team</p>
-                    <p className="text-[10px] text-slate-400">MENA distributed</p>
-                  </div>
-                </div>
-
-                {/* Response time card */}
-                <div className="card-glass rounded-xl border border-white/8 p-5 h-36 flex flex-col justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-xs text-emerald-400 font-medium">Online now</span>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-white mb-0.5">&lt;24h</div>
-                    <div className="text-xs text-slate-400">Guaranteed response</div>
-                  </div>
+                {/* Process steps inline */}
+                <div className="space-y-5">
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">What happens next</p>
+                  {steps.map((step) => (
+                    <div key={step.num} className="flex gap-4">
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold text-orange-400 mt-0.5"
+                        style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.18)" }}
+                      >
+                        {step.num}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-white mb-0.5">{step.title}</p>
+                        <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-28 ov-b pointer-events-none" />
-        </section>
-
-        {/* ── FORM + PROCESS ────────────────────────────────── */}
-        <section className="relative py-24 overflow-hidden" aria-labelledby="form-section">
-          <div className="absolute inset-0 bg-[var(--sec-2)]" />
-          <div className="absolute inset-0 bg-grid pointer-events-none" />
-          <div
-            className="absolute top-0 left-0 right-0 h-px"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
-          />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
-
-              {/* Form — first on mobile, left on desktop */}
+              {/* Right — form */}
               <div className="card p-8 rounded-2xl">
                 {submitted ? (
-                  <div className="flex flex-col items-center justify-center py-12 text-center gap-5">
+                  <div className="flex flex-col items-center justify-center py-16 text-center gap-5">
                     <div className="w-14 h-14 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                       <CheckCircle2 size={24} className="text-orange-400" />
                     </div>
@@ -238,7 +198,7 @@ export default function ContactPage() {
                           What are you building?
                         </label>
                         <textarea
-                          rows={4}
+                          rows={5}
                           placeholder="Describe your project, goals, or the problem you are trying to solve..."
                           className="w-full bg-white/3 border border-white/7 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-orange-500/40 transition-colors resize-none"
                         />
@@ -267,55 +227,10 @@ export default function ContactPage() {
                 )}
               </div>
 
-              {/* Process — second on mobile, right on desktop */}
-              <div>
-                <h2 id="form-section" className="text-xl font-bold text-white mb-8">
-                  What happens next
-                </h2>
-                <div className="space-y-8 mb-10">
-                  {steps.map((step) => (
-                    <div key={step.num} className="flex gap-5">
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold text-orange-400 mt-0.5"
-                        style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.18)" }}
-                      >
-                        {step.num}
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-white mb-1">{step.title}</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="relative rounded-xl overflow-hidden border border-white/8 mb-6">
-                  <img
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80"
-                    alt="ZaadCore team"
-                    className="w-full h-44 object-cover"
-                  />
-                  <div className="absolute inset-0 ov-img-b" />
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-sm font-semibold text-white">Strategy to delivery</p>
-                    <p className="text-xs text-slate-400">One team end-to-end</p>
-                  </div>
-                </div>
-
-                <div className="card p-5 rounded-xl">
-                  <p className="text-sm text-slate-400 mb-1">Prefer email?</p>
-                  <a
-                    href="mailto:hello@zaadcore.com"
-                    className="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors"
-                  >
-                    hello@zaadcore.com
-                  </a>
-                  <p className="text-xs text-slate-600 mt-1">We typically reply within a few hours.</p>
-                </div>
-              </div>
-
             </div>
           </div>
+
+          <div className="absolute bottom-0 left-0 right-0 h-28 ov-b pointer-events-none" />
         </section>
 
       </main>

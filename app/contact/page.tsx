@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Send, CheckCircle2, Mail, MapPin, Clock } from "lucide-react";
+import { ArrowRight, Send, CheckCircle2, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import SiteShell from "@/components/SiteShell";
 
 const steps = [
@@ -61,15 +61,15 @@ export default function ContactPage() {
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080d18]/96 via-[#080d18]/82 to-[#080d18]/55" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#080d18]/40 via-transparent to-[#080d18]" />
+          <div className="absolute inset-0 ov-lr" />
+          <div className="absolute inset-0 ov-tb" />
           <div className="absolute inset-0 bg-dots opacity-25 pointer-events-none" />
           <div
             className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
             style={{ background: "radial-gradient(circle, rgba(249,115,22,0.09) 0%, transparent 65%)" }}
           />
 
-          <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pt-32 pb-24">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-24">
             <div className="grid lg:grid-cols-2 gap-14 items-center">
               {/* Left */}
               <div>
@@ -89,12 +89,20 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   {[
                     { icon: Mail, label: "Email", value: "hello@zaadcore.com", href: "mailto:hello@zaadcore.com" },
+                    {
+                      icon: MessageCircle,
+                      label: "WhatsApp",
+                      value: "Chat with us now",
+                      href: `https://wa.me/971582366125?text=${encodeURIComponent("Hi ZaadCore, I'd like to discuss a project.")}`,
+                      external: true,
+                    },
                     { icon: MapPin, label: "Location", value: "Dubai, United Arab Emirates", href: "#" },
                     { icon: Clock, label: "Response", value: "Within 24 hours", href: "#" },
                   ].map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
+                      {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="flex items-center gap-4 px-5 py-4 card-glass rounded-xl hover:border-orange-500/15 transition-all"
                     >
                       <div className="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
@@ -118,7 +126,7 @@ export default function ContactPage() {
                     alt="Dubai HQ"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/80 to-transparent" />
+                  <div className="absolute inset-0 ov-img-b" />
                   <div className="absolute bottom-4 left-4">
                     <p className="text-sm font-semibold text-white">Dubai HQ</p>
                     <p className="text-xs text-slate-400">Main delivery office</p>
@@ -132,7 +140,7 @@ export default function ContactPage() {
                     alt="Remote team"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/80 to-transparent" />
+                  <div className="absolute inset-0 ov-img-b" />
                   <div className="absolute bottom-3 left-3">
                     <p className="text-xs font-semibold text-white">Remote Team</p>
                     <p className="text-[10px] text-slate-400">MENA distributed</p>
@@ -154,72 +162,22 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#080d18] to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-28 ov-b pointer-events-none" />
         </section>
 
         {/* ── FORM + PROCESS ────────────────────────────────── */}
         <section className="relative py-24 overflow-hidden" aria-labelledby="form-section">
-          <div className="absolute inset-0 bg-[#0a0f1e]" />
+          <div className="absolute inset-0 bg-[var(--sec-2)]" />
           <div className="absolute inset-0 bg-grid pointer-events-none" />
           <div
             className="absolute top-0 left-0 right-0 h-px"
             style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
           />
 
-          <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-              {/* Process */}
-              <div>
-                <h2 id="form-section" className="text-xl font-bold text-white mb-8">
-                  What happens next
-                </h2>
-                <div className="space-y-8 mb-10">
-                  {steps.map((step) => (
-                    <div key={step.num} className="flex gap-5">
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold text-orange-400 mt-0.5"
-                        style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.18)" }}
-                      >
-                        {step.num}
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-white mb-1">{step.title}</h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Office image below steps */}
-                <div className="relative rounded-xl overflow-hidden border border-white/8 mb-6">
-                  <img
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80"
-                    alt="ZaadCore team"
-                    className="w-full h-44 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e]/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-sm font-semibold text-white">Strategy to delivery</p>
-                    <p className="text-xs text-slate-400">One team end-to-end</p>
-                  </div>
-                </div>
-
-                <div className="card p-5 rounded-xl">
-                  <p className="text-sm text-slate-400 mb-1">Prefer email?</p>
-                  <a
-                    href="mailto:hello@zaadcore.com"
-                    className="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors"
-                  >
-                    hello@zaadcore.com
-                  </a>
-                  <p className="text-xs text-slate-600 mt-1">
-                    We typically reply within a few hours.
-                  </p>
-                </div>
-              </div>
-
-              {/* Form */}
+              {/* Form — first on mobile, left on desktop */}
               <div className="card p-8 rounded-2xl">
                 {submitted ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center gap-5">
@@ -308,6 +266,54 @@ export default function ContactPage() {
                   </>
                 )}
               </div>
+
+              {/* Process — second on mobile, right on desktop */}
+              <div>
+                <h2 id="form-section" className="text-xl font-bold text-white mb-8">
+                  What happens next
+                </h2>
+                <div className="space-y-8 mb-10">
+                  {steps.map((step) => (
+                    <div key={step.num} className="flex gap-5">
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold text-orange-400 mt-0.5"
+                        style={{ background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.18)" }}
+                      >
+                        {step.num}
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-white mb-1">{step.title}</h3>
+                        <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden border border-white/8 mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=700&q=80"
+                    alt="ZaadCore team"
+                    className="w-full h-44 object-cover"
+                  />
+                  <div className="absolute inset-0 ov-img-b" />
+                  <div className="absolute bottom-4 left-4">
+                    <p className="text-sm font-semibold text-white">Strategy to delivery</p>
+                    <p className="text-xs text-slate-400">One team end-to-end</p>
+                  </div>
+                </div>
+
+                <div className="card p-5 rounded-xl">
+                  <p className="text-sm text-slate-400 mb-1">Prefer email?</p>
+                  <a
+                    href="mailto:hello@zaadcore.com"
+                    className="text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors"
+                  >
+                    hello@zaadcore.com
+                  </a>
+                  <p className="text-xs text-slate-600 mt-1">We typically reply within a few hours.</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

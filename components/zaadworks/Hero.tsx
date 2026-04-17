@@ -34,8 +34,8 @@ export default function ZaadWorksHero() {
       </video>
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#080d18]/97 via-[#080d18]/82 to-[#080d18]/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080d18]/50 via-transparent to-[#080d18]" />
+      <div className="absolute inset-0 ov-lr" />
+      <div className="absolute inset-0 ov-tb" />
       <div className="absolute inset-0 bg-dots opacity-25 pointer-events-none" />
 
       {/* Accent glow */}
@@ -44,7 +44,7 @@ export default function ZaadWorksHero() {
         style={{ background: "radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 65%)" }}
       />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pt-32 pb-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left */}
@@ -123,7 +123,7 @@ export default function ZaadWorksHero() {
                 alt="ZaadWorks workforce management"
                 className="w-full h-[480px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/75 via-[#080d18]/10 to-transparent" />
+              <div className="absolute inset-0 ov-img-b" />
 
               {/* Inline stat row */}
               <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2">
@@ -153,7 +153,7 @@ export default function ZaadWorksHero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#080d18] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-28 ov-b pointer-events-none" />
     </section>
   );
 }

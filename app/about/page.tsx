@@ -93,8 +93,8 @@ export default function AboutPage() {
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080d18]/96 via-[#080d18]/80 to-[#080d18]/50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#080d18]/40 via-transparent to-[#080d18]" />
+          <div className="absolute inset-0 ov-lr" />
+          <div className="absolute inset-0 ov-tb" />
           <div className="absolute inset-0 bg-dots opacity-25 pointer-events-none" />
 
           {/* Left orange glow */}
@@ -103,7 +103,7 @@ export default function AboutPage() {
             style={{ background: "radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 65%)" }}
           />
 
-          <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 pt-32 pb-24">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-32 pb-24">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left */}
               <div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                     alt="ZaadCore team at work"
                     className="w-full h-[440px] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/70 to-transparent" />
+                  <div className="absolute inset-0 ov-img-b" />
                 </div>
 
                 <div className="absolute -bottom-4 -left-6 z-20 card-glass rounded-xl px-4 py-3 shadow-xl">
@@ -152,19 +152,19 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#080d18] to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-28 ov-b pointer-events-none" />
         </section>
 
         {/* ── WHAT WE DO ────────────────────────────────────── */}
         <section className="relative py-20 overflow-hidden" aria-labelledby="what-we-do">
-          <div className="absolute inset-0 bg-[#0a0f1e]" />
+          <div className="absolute inset-0 bg-[var(--sec-2)]" />
           <div className="absolute inset-0 bg-grid pointer-events-none" />
           <div
             className="absolute top-0 left-0 right-0 h-px"
             style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
           />
 
-          <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
             <div className="grid md:grid-cols-2 gap-14 items-start">
               <div>
                 <h2 id="what-we-do" className="text-2xl font-bold text-white mb-5">
@@ -209,14 +209,14 @@ export default function AboutPage() {
 
         {/* ── VALUES ────────────────────────────────────────── */}
         <section className="relative py-20 overflow-hidden" aria-labelledby="values-heading">
-          <div className="absolute inset-0 bg-[#080d18]" />
+          <div className="absolute inset-0 bg-[var(--sec-1)]" />
           <div className="absolute inset-0 bg-stripe pointer-events-none" />
           <div
             className="absolute top-0 left-0 right-0 h-px"
             style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
           />
 
-          <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
             <h2 id="values-heading" className="text-2xl font-bold text-white mb-10">
               How we work
             </h2>
@@ -237,14 +237,14 @@ export default function AboutPage() {
 
         {/* ── TEAM IN ACTION ────────────────────────────────── */}
         <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[#0a0f1e]" />
+          <div className="absolute inset-0 bg-[var(--sec-2)]" />
           <div className="absolute inset-0 bg-dots opacity-15 pointer-events-none" />
           <div
             className="absolute top-0 left-0 right-0 h-px"
             style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
           />
 
-          <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
             <div className="mb-10">
               <h2 className="text-2xl font-bold text-white">The team in action</h2>
               <p className="text-slate-500 mt-1 text-sm">Real environments. Real collaboration. Real delivery.</p>
@@ -262,7 +262,7 @@ export default function AboutPage() {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/88 via-[#080d18]/25 to-transparent" />
+                  <div className="absolute inset-0 ov-img-b" />
                   <div className="absolute bottom-5 left-5 right-5">
                     <h3 className="text-sm font-semibold text-white mb-1">{item.title}</h3>
                     <p className="text-xs text-slate-400">{item.desc}</p>
@@ -282,14 +282,14 @@ export default function AboutPage() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute inset-0 bg-[#080d18]/90" />
+          <div className="absolute inset-0 bg-[var(--sec-1)]/90" />
           <div className="absolute inset-0 bg-mesh pointer-events-none" />
           <div
             className="absolute top-0 left-0 right-0 h-px"
             style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.3), transparent)" }}
           />
 
-          <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
             <div className="max-w-xl">
               <h2 id="about-cta" className="text-3xl font-bold text-white mb-4">
                 Want to build with us?

@@ -64,7 +64,7 @@ export default function ContactCTA() {
             <div className="flex flex-col gap-4 mb-10">
               {[
                 { icon: Mail, label: "Email us", value: "hello@zaadcore.com" },
-                { icon: Phone, label: "Call us", value: "+971 4 200 0000" },
+                { icon: Phone, label: "Call us", value: "+971 58 236 6125" },
                 { icon: MapPin, label: "Office", value: "Dubai, UAE" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4 glass rounded-xl p-4">

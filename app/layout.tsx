@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import PageLoader from "@/components/PageLoader";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -194,9 +195,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-full bg-[#0a0e1a] text-slate-200 antialiased">
-        <PageLoader />
-        {children}
+      <body className="min-h-full bg-[var(--bg)] text-slate-200 antialiased">
+        <ThemeProvider>
+          <PageLoader />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -47,7 +47,7 @@ export default function Hero() {
           type="video/mp4"
         />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#070b16]/70 via-[#0a0e1a]/85 to-[#0a0e1a]" />
+      <div className="absolute inset-0 ov-tb" />
       <div className="absolute inset-0 grid-pattern opacity-40" />
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -183,7 +183,7 @@ export default function Hero() {
                 alt="ZaadWorks HR analytics dashboard"
                 className="w-full h-[420px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 ov-img-b" />
             </div>
             <motion.div animate={{ y: [-4, 4, -4] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -bottom-4 -left-4 glass-dark rounded-xl px-4 py-3 border border-slate-700/50 shadow-xl">

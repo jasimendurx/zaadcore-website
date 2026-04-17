@@ -1,7 +1,13 @@
 import ZaadLogo from "./ZaadLogo";
 
 const links = {
-  Product: [
+  Services: [
+    { label: "Custom Websites", href: "/services" },
+    { label: "Business CRMs", href: "/services" },
+    { label: "Mobile Apps", href: "/services" },
+    { label: "AI & WhatsApp Bots", href: "/services" },
+  ],
+  Products: [
     { label: "ZaadWorks HRMS", href: "/zaadworks" },
     { label: "Features", href: "/zaadworks#features" },
     { label: "UAE Compliance", href: "/zaadworks#compliance" },
@@ -16,9 +22,9 @@ const links = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-[#0a0e1a]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12">
+    <footer className="border-t border-white/5 bg-[var(--sec-1)]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="sm:col-span-1">
             <ZaadLogo size="sm" className="mb-4" />

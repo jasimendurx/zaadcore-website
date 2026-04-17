@@ -28,7 +28,7 @@ export default function ZaadWorksCTA() {
         className="py-20 border-b border-white/5"
         aria-labelledby="faq-heading"
       >
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="grid lg:grid-cols-2 gap-14">
             <div>
               <p className="section-label mb-3">FAQ</p>
@@ -58,7 +58,7 @@ export default function ZaadWorksCTA() {
         className="py-20"
         aria-labelledby="zaadworks-cta"
       >
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="max-w-xl">
             <p className="section-label mb-4">Get started</p>
             <h2

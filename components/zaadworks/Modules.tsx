@@ -47,14 +47,14 @@ export default function ZaadWorksModules() {
       aria-labelledby="modules-heading"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0f1e]" />
+      <div className="absolute inset-0 bg-[var(--sec-2)]" />
       <div className="absolute inset-0 bg-dots opacity-20 pointer-events-none" />
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.25), transparent)" }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
         <div className="mb-14">
           <p className="section-label mb-3">Platform modules</p>
           <h2
@@ -76,7 +76,7 @@ export default function ZaadWorksModules() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0e1524] via-[#0e1524]/40 to-transparent" />
+                <div className="absolute inset-0 ov-card-b" />
                 <div className="absolute bottom-3 left-4">
                   <div className="w-8 h-8 rounded-lg bg-orange-500/15 border border-orange-500/25 flex items-center justify-center">
                     <mod.icon size={14} className="text-orange-400" />

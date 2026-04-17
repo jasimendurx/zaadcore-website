@@ -4,6 +4,10 @@
   --bg: #080d18;
   --surface: #0e1524;
   --surface-2: #141d2e;
+  --sec-1: #080d18;   /* primary section bg */
+  --sec-2: #0a0f1e;   /* alternate section bg */
+  --nav-bg: rgba(10, 14, 26, 0.95);
+  --mobile-menu-bg: #0f1623;
   --border: rgba(255, 255, 255, 0.07);
   --border-hover: rgba(255, 255, 255, 0.14);
   --text: #e2e8f0;
@@ -11,6 +15,8 @@
   --muted-2: #475569;
   --accent: #f97316;
   --accent-light: #fb923c;
+  --logo-text-start: #ffffff;
+  --logo-text-end: #fb923c;
 }
 
 @theme inline {
@@ -180,6 +186,144 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 12px;
+}
+
+/* ─── Light theme ────────────────────────────────────────────── */
+html.light {
+  --bg: #f0f4fd;
+  --surface: #ffffff;
+  --surface-2: #e8eef9;
+  --sec-1: #f0f4fd;
+  --sec-2: #e8eef9;
+  --nav-bg: rgba(240, 244, 253, 0.97);
+  --mobile-menu-bg: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(15, 23, 42, 0.16);
+  --text: #0f172a;
+  --muted: #475569;
+  --muted-2: #94a3b8;
+  --accent: #ea6c09;
+  --accent-light: #f97316;
+  --logo-text-start: #1e293b;
+  --logo-text-end: #ea6c09;
+  color-scheme: light;
+}
+
+/* ── Theme-aware gradient overlays — replace all from-[#hex] patterns ── */
+.ov-lr   { background: linear-gradient(90deg, var(--sec-1) 0%, transparent 70%); }
+.ov-tb   { background: linear-gradient(180deg, var(--sec-1) 0%, transparent 50%, var(--sec-1) 100%); }
+.ov-b    { background: linear-gradient(0deg, var(--sec-1) 0%, transparent 100%); }
+.ov-img-b{ background: linear-gradient(0deg, var(--surface) 0%, transparent 70%); }
+.ov-card-b { background: linear-gradient(0deg, var(--surface) 0%, transparent 100%); }
+.ov-card-alt { background: linear-gradient(0deg, var(--sec-2) 0%, transparent 100%); }
+
+html.light body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ── Text ── */
+html.light .text-white  { color: #0f172a !important; }
+html.light .text-slate-100 { color: #0f172a !important; }
+html.light .text-slate-200 { color: #1e293b !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .text-slate-400 { color: #475569 !important; }
+html.light .text-slate-500 { color: #64748b !important; }
+html.light .text-slate-600 { color: #94a3b8 !important; }
+html.light .text-slate-700 { color: #cbd5e1 !important; }
+html.light .text-emerald-400 { color: #059669 !important; }
+html.light .bg-emerald-400  { background-color: #059669 !important; }
+html.light .bg-emerald-500  { background-color: #059669 !important; }
+
+/* ── Section backgrounds — handled via CSS variables in JSX ── */
+
+/* ── Borders ── */
+html.light .border-white\/5  { border-color: rgba(15,23,42,0.07) !important; }
+html.light .border-white\/7  { border-color: rgba(15,23,42,0.09) !important; }
+html.light .border-white\/8  { border-color: rgba(15,23,42,0.09) !important; }
+html.light .border-white\/9  { border-color: rgba(15,23,42,0.10) !important; }
+
+/* ── Card glass ── */
+html.light .card-glass {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* ── Ghost button ── */
+html.light .btn-ghost {
+  color: #334155;
+  border-color: rgba(15, 23, 42, 0.18);
+}
+html.light .btn-ghost:hover {
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.32);
+}
+
+/* ── Primary button (keep orange, ensure contrast) ── */
+html.light .btn-primary { background: var(--accent); }
+html.light .btn-primary:hover { background: var(--accent-light); }
+
+/* ── Inputs / Textarea ── */
+html.light input,
+html.light textarea {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder { color: #94a3b8 !important; }
+html.light input:focus,
+html.light textarea:focus { border-color: rgba(249, 115, 22, 0.5) !important; }
+
+/* ── Background patterns ── */
+html.light .bg-dots {
+  background-image: radial-gradient(circle, rgba(15, 23, 42, 0.1) 1px, transparent 1px);
+}
+html.light .bg-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+html.light .bg-stripe {
+  background-image: repeating-linear-gradient(
+    -45deg, transparent, transparent 12px,
+    rgba(15, 23, 42, 0.018) 12px, rgba(15, 23, 42, 0.018) 13px
+  );
+}
+html.light .bg-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(249,115,22,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(56,130,246,0.04) 0%, transparent 50%),
+    var(--bg);
+}
+
+/* ── Scrollbar ── */
+html.light ::-webkit-scrollbar-track { background: var(--bg); }
+html.light ::-webkit-scrollbar-thumb { background: #c7d2e8; border-radius: 2px; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ── Selection ── */
+html.light ::selection { background: rgba(249,115,22,0.18); color: #0f172a; }
+
+/* ── Section divider glow — lighter in light mode ── */
+html.light .divider-glow::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(249,115,22,0.25) 50%, transparent 100%);
+}
+
+/* ── Orange icon containers ── */
+html.light .bg-orange-500\/10 { background-color: rgba(249,115,22,0.08) !important; }
+html.light .bg-orange-500\/15 { background-color: rgba(249,115,22,0.12) !important; }
+html.light .bg-white\/3  { background-color: rgba(15, 23, 42, 0.05) !important; }
+html.light .bg-white\/8  { background-color: rgba(15, 23, 42, 0.06) !important; }
+
+/* ── Gradient overlays (dark → light bg in light mode) ── */
+html.light .img-overlay-dark {
+  background: linear-gradient(to top, rgba(240,244,253,0.88) 0%, rgba(240,244,253,0.45) 50%, rgba(240,244,253,0.2) 100%);
+}
+html.light .img-overlay-left {
+  background: linear-gradient(to right, rgba(240,244,253,0.95) 0%, rgba(240,244,253,0.75) 45%, rgba(240,244,253,0.1) 100%);
 }
 
 /* ─── Animations ─────────────────────────────────────────────── */

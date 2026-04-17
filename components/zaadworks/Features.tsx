@@ -23,14 +23,14 @@ export default function ZaadWorksFeatures() {
       aria-labelledby="features-heading"
     >
       {/* BG with faint image */}
-      <div className="absolute inset-0 bg-[#080d18]" />
+      <div className="absolute inset-0 bg-[var(--sec-1)]" />
       <div className="absolute inset-0 opacity-[0.07]">
         <img
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=40"
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#080d18]/85" />
+        <div className="absolute inset-0 bg-[var(--sec-1)]/85" />
       </div>
       <div className="absolute inset-0 bg-stripe pointer-events-none" />
       <div
@@ -38,7 +38,7 @@ export default function ZaadWorksFeatures() {
         style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div>
@@ -61,7 +61,7 @@ export default function ZaadWorksFeatures() {
                 alt="ZaadWorks team"
                 className="w-full h-52 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/70 to-transparent" />
+              <div className="absolute inset-0 ov-img-b" />
               <div className="absolute bottom-4 left-4">
                 <p className="text-sm font-semibold text-white">Purpose-built for UAE</p>
                 <p className="text-xs text-slate-400">Compliant from day one</p>

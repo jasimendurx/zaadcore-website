@@ -27,7 +27,7 @@ export default function ZaadWorksCompliance() {
       aria-labelledby="compliance-heading"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0f1e]" />
+      <div className="absolute inset-0 bg-[var(--sec-2)]" />
       <div className="absolute inset-0 bg-grid pointer-events-none" />
 
       {/* Dubai imagery */}
@@ -37,7 +37,7 @@ export default function ZaadWorksCompliance() {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1e] via-[#0a0f1e]/50 to-transparent" />
+        <div className="absolute inset-0 ov-lr" />
       </div>
 
       <div
@@ -45,7 +45,7 @@ export default function ZaadWorksCompliance() {
         style={{ background: "linear-gradient(90deg, transparent, rgba(249,115,22,0.2), transparent)" }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div>
@@ -81,7 +81,7 @@ export default function ZaadWorksCompliance() {
                 alt="UAE compliance documentation"
                 className="w-full h-44 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e]/80 to-transparent" />
+              <div className="absolute inset-0 ov-img-b" />
               <div className="absolute bottom-4 left-4">
                 <p className="text-sm font-semibold text-white">Government-ready reports</p>
                 <p className="text-xs text-slate-400">Built to UAE standards</p>
